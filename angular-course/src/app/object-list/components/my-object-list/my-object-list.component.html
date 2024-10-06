@@ -1,0 +1,6 @@
+<p>Список Языков программирования</p>
+<div>
+    <ul *ngFor="let item of MyObjectList">
+        <li><a [routerLink]="[item.id]" routerLinkActive="active">{{ item.title }}</a></li>
+    </ul>
+</div>

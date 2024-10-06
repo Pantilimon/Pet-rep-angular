@@ -1,0 +1,17 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    width: 40vw;
+
+    .forms-imput {
+        width: 100%;
+        display: flex;
+        gap: 15px;
+
+        label {
+            width: 80px;
+        }
+    }
+}

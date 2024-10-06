@@ -1,0 +1,9 @@
+<!-- <ng-container ></ng-container> -->
+ @if (posts$ | async; as posts) {
+    @for (post of posts; track post.id) {
+        <div class="post">
+            <span class="post__title">{{post.title}}</span>
+            <span class="post__body">{{post.body}}</span>
+        </div>
+    }
+ }
