@@ -10,8 +10,7 @@ import { DirectivesModule } from './directives/directives.module';
 import { LifeCycleModule } from './lifecycle/lifecycle.module';
 import { RequestModule } from './request/request.module';
 import { FormsModule } from './forms/forms.module';
-
-
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 
@@ -28,7 +27,9 @@ import { FormsModule } from './forms/forms.module';
     RequestModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

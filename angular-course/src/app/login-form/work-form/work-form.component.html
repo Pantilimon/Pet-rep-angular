@@ -1,0 +1,29 @@
+<div class="login-container">
+  <h1>Веб-форма АРМ ЛНП</h1>
+  <form class="login-form" [formGroup]="loginForm">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Табельный номер</mat-label>
+        <input type="text" matInput formControlName="login" [errorStateMatcher]="matcher"/>
+        <mat-error></mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        @let isPassHidden = isPasswordHidden();
+        <mat-label>Пароль</mat-label>
+        <input matInput formControlName="password" [type]="isPassHidden ? 'password' : 'text'" [errorStateMatcher]="matcher"/>
+        <mat-icon matSuffix (click)="hidePass()">{{ isPassHidden ? 'visibility_off' : 'visibility' }}</mat-icon>
+
+      </mat-form-field>
+      @if (!loginerror) {
+        <mat-error></mat-error>
+      } @else {
+        <mat-error>Неверный табельный номер или пароль</mat-error>
+      }
+
+
+      <div class="login-actions">
+        <button mat-flat-button>Войти</button>
+      </div>
+  </form>
+</div>
