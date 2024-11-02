@@ -1,0 +1,30 @@
+<fieldset [formGroup]="form">
+    <div class="daterange flex-row">
+        <mat-form-field appearance="outline">    
+            <mat-label>{{ labelFrom() }}</mat-label>
+            <input matInput
+                    formControlName="from"
+                    placeholder="ДД.ММ.ГГГГ"
+                    [matDatepicker]="fromDatepicker"
+                    (ngModelChange)="updateMin($event)">
+            <mat-datepicker-toggle matSuffix
+                                    [for]="fromDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #fromDatepicker></mat-datepicker>
+        </mat-form-field>
+        <i>-</i>
+        <mat-form-field appearance="outline">    
+            <mat-label>{{ labelTo() }}</mat-label>
+            <input matInput
+                formControlName="to"
+                placeholder="ДД.ММ.ГГГГ"
+                [matDatepicker]="toDatepicker"
+                (ngModelChange)="updateMax($event)">
+                <mat-datepicker-toggle matSuffix
+                                        [for]="toDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #toDatepicker></mat-datepicker>
+        </mat-form-field>
+        <button mat-flat-button (click)="thisValue()">Наш валью</button>
+        <button mat-flat-button (click)="thisMin()">Наш мин</button>
+        <button mat-flat-button (click)="thisMax()">Наш макс</button>
+    </div>
+</fieldset>

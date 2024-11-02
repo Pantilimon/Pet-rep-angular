@@ -1,0 +1,14 @@
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.daterange {
+    gap: var(--indent-size-m);
+    justify-content: space-between;
+    
+    i {
+        margin-top: var(--indent-size-l);
+    }
+}

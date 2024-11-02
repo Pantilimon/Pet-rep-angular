@@ -9,6 +9,7 @@ import { FormsComponent } from './forms/components/forms/forms.component';
 import { WorkFormComponent } from './login-form/work-form/work-form.component';
 import { MyNavigation } from './components/navigation/navigation.component';
 import { MyCalculatorImprovedComponent } from './calculator/components/my-calculator-improved/my-calculator-improved.component';
+import { DateRangeComponent } from './daterange/daterange.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
   { 
     path: 'login',
     component: WorkFormComponent
+  },
+  { 
+    path: 'daterange',
+    component: DateRangeComponent
   },
   {
     path: 'Calculator-improved',

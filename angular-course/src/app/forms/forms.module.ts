@@ -6,7 +6,6 @@ import { FormsComponent } from './components/forms/forms.component';
 
 
 
-
 @NgModule({
   declarations: [FormsComponent],
   exports: [FormsComponent],

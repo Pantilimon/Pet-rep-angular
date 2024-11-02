@@ -25,7 +25,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     DirectivesModule,
     LifeCycleModule,
     RequestModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     provideAnimationsAsync()
