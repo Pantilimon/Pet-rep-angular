@@ -1,0 +1,14 @@
+.calculator {
+    width: 800px;
+    box-sizing: border-box;
+    background-color: #508f8d;
+    border-radius: 10px;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.strind__of__calculator {
+    display: flex;
+    flex-direction: row;
+}
