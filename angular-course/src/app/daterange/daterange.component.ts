@@ -1,4 +1,4 @@
-import { Component, inject, Input, input } from '@angular/core';
+import { Component, forwardRef, inject, Input, input } from '@angular/core';
 import { ControlValueAccessor, FormBuilder, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
@@ -29,7 +29,7 @@ import { MAT_DATE_FORMATS } from '@angular/material/core';
       floatLabel: 'always'
     }},
     { provide: NG_VALUE_ACCESSOR,
-      useExisting: DateRangeComponent,
+      useExisting: forwardRef(() => DateRangeComponent),
       multi: true
     },
     { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
@@ -40,31 +40,30 @@ import { MAT_DATE_FORMATS } from '@angular/material/core';
 })
 export class DateRangeComponent implements ControlValueAccessor {
   private fb = inject(FormBuilder);
-  // min = input();
-  // max = input();
   labelFrom = input('От');
   labelTo = input('До');
-
-  public value = {min: this.min, max: this.max};
-  public Value = {};
-  @Input() min?: object;
-  @Input() max?: object;
   public touched = false;
-  private onChange = (value: any) => {};
-  private onTouched = () => {};
+
+
 
   //test
   public thisValue(): void {
     console.log(this.value);
   };
   public thisMin(): void {
-    console.log(this.min);
+    console.log(this.value.min);
   };
   public thisMax(): void {
-    console.log(this.max);
+    console.log(this.value.max);
   };
-  //testy
-  
+  //test 
+
+  @Input() min?: object;
+  @Input() max?: object;
+  public value = {min: this.min, max: this.max};
+
+  private onChange = (value: any) => {};
+  private onTouched = () => {};
 
   form: FormGroup = this.fb.group({
     from: [this.min, Validators.required],
@@ -80,23 +79,22 @@ export class DateRangeComponent implements ControlValueAccessor {
   }
 
   writeValue(value: any): void {
+    this.value.min = value.min;
+    this.value.max = value.max
       if (value) {
         this.form.setValue(value, { emitEvent: false });
       }
   }
   
   updateMin(insideValue: object) {
+    this.value.min = insideValue
     this.onChange(insideValue);
     this.onTouched();
   }
+
   updateMax(insideValue: object) {
-    this.value.max = insideValue;
+    this.value.max = insideValue
     this.onChange(insideValue);
     this.onTouched();
   }
-  // updateValue(insideValue: object) {
-  //   this.Value = insideValue;
-  //   this.onChange(insideValue);
-  //   this.onTouched();
-  // }
 }
